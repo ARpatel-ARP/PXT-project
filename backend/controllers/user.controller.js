@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
-import {User} from "../models/user.model.js"
+import User from "../models/user.model.js"
 import { json } from "express";
+import { generateToken } from "../utils/generateToken.js";
 
 export const register = async (req, res) => {
     try {
@@ -38,7 +39,7 @@ export const register = async (req, res) => {
         
     }
 }
-export const login = async (params) => {
+export const login = async (req, res) => {
    try {
      const {email, password} = req.body;
      if (!email || !password) {
