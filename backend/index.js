@@ -3,7 +3,7 @@ dns.setServers(['8.8.8.8', '8.8.4.4']);
 import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
-import connectDB from './config/db.js';
+import {connectDB} from './config/db.js';
 import cookieParser from "cookie-parser"
 dotenv.config()
 
