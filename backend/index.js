@@ -3,6 +3,7 @@ dns.setServers(['8.8.8.8', '8.8.4.4']);
 import express from "express"
 import dotenv from "dotenv"
 import userRoute from "./routes/user.routes.js"
+import expenseRoute from "./routes/expense.routes.js"
 import cors from "cors"
 import {connectDB} from './config/db.js';
 import cookieParser from "cookie-parser"
@@ -20,7 +21,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
+
 app.use("/api/auth", userRoute)
+app.use('/api/expense', expenseRoute)
+
+
 connectDB()
 app.listen(PORT, () => {
   console.log(`Server listen at port ${PORT}`);
