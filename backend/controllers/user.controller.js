@@ -28,7 +28,6 @@ export const register = async (req, res) => {
         return res.status(200).json({
             success:true,
             message:"Account created successfully"
-            
         })
     } catch (error) {
         console.log(error);
@@ -36,7 +35,6 @@ export const register = async (req, res) => {
             success:false,
             message:"Register failed"
         })
-        
     }
 }
 export const login = async (req, res) => {
@@ -69,6 +67,5 @@ export const login = async (req, res) => {
         success:false,
         message:"Login failed"
     })
-    
    }
 }
