@@ -15,7 +15,7 @@ export const createExpense = async (req, res) => {
             category,
             description,
             expenseDate,
-            userId:req.id,
+            owner:req.id,
         })
         return res.status(200).json({
             success:true,
@@ -30,4 +30,24 @@ export const createExpense = async (req, res) => {
     }
 }
 
-export const 
+export const getExpense = async (req, res) => {
+    try {
+        const userId = req.id;
+        const expenses = await Expense.findOne({owner:userId})
+        if (!expenses) {
+            return res.status(400).json({
+                success:false,
+                message:'Expense not found'
+            })
+        }
+        return res.status(200).json({
+            success:true,
+            expenses
+        })
+    } catch (error) {
+        return res.status(400).json({
+            success:false,
+            message:"Could not get expenses"
+        })
+    }
+}
