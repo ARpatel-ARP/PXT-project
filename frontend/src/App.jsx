@@ -1,17 +1,33 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import { ThemeProvider } from './components/ui/ThemeProvider';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Mainlayout from './layouts/Mainlayout';
+import { Login } from './pages/Login';
+
+const appRouter = createBrowserRouter([
+  {
+    path:"/",
+    element:<Mainlayout/>,
+    children:[
+      {
+        path:"login",
+        element:(
+          <Auth
+        )
+      }
+    ]
+  }
+])
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    hello mfs
-    </>
-  )
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <main>
+        <RouterProvider router={appRouter} />
+      </main>
+    </ThemeProvider>
+  );
 }
 
 export default App
