@@ -4,6 +4,7 @@ import { ThemeProvider } from './components/ui/ThemeProvider';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Mainlayout from './layouts/Mainlayout';
 import { Login } from './pages/Login';
+import { AuthenticatedUser } from './components/ProtectedRoute';
 
 const appRouter = createBrowserRouter([
   {
