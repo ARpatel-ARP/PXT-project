@@ -5,16 +5,19 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Mainlayout from './layouts/Mainlayout';
 import { Login } from './pages/Login';
 import { AuthenticatedUser } from './components/ProtectedRoute';
+import MainLayout from './components/MainLayout';
 
 const appRouter = createBrowserRouter([
   {
     path:"/",
-    element:<Mainlayout/>,
+    element:<MainLayout/>,
     children:[
       {
         path:"login",
         element:(
-          <AuthenticatedUser/>
+          <AuthenticatedUser>
+            <Login/>
+          </AuthenticatedUser>
         )
       }
     ]
